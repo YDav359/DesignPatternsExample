@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesignPatternsExample.DesignPatterns.Adapter;
+using System;
 
 namespace DesignPatternsExample
 {
@@ -6,7 +7,15 @@ namespace DesignPatternsExample
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            IPrinter printer, smartPrinterA;
+
+            printer = new Printer();
+            smartPrinterA = new SmartPrinterAdapter(new SmartPrinter());
+
+            printer.Print("hello");
+            smartPrinterA.Print("hello");
+
+            Console.ReadLine();
         }
     }
 }
